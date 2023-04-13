@@ -15,7 +15,7 @@ const Pokeinfo = ({ data }) => {
                                 return(
                                     <>
                                      <div className="group">
-                                        <h2>{poke.ability.name}</h2>
+                                        <h2>{poke.ability.name.toUpperCase()}</h2>
                                     </div>
                                     </>
                                 )
@@ -27,7 +27,8 @@ const Pokeinfo = ({ data }) => {
                             data.stats.map(poke=>{
                                 return(
                                     <>
-                                        <h3>{poke.stat.name}:{poke.base_stat}</h3>
+                                        
+                                        <h3>{poke.stat.name.charAt(0).toUpperCase()+poke.stat.name.slice(1)}:  {poke.base_stat}</h3>
                                     </>
                                 )
                             })

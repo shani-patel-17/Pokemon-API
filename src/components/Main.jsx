@@ -14,7 +14,7 @@ const Main = () => {
     const [query, setQuery] = useState("");
 
     const search =(data) =>{
-        return data.filter((item)=>item.name.toLowerCase().includes(query))
+        return data.filter((item)=>item.name.toLowerCase().includes(query) )
     }
  
 
@@ -43,7 +43,7 @@ const Main = () => {
         <>
             <form className="form menu-item" role="search">
                 <input className="form-input" type="search" placeholder="Search..." aria-label="Search" onChange={(e) => setQuery(e.target.value)} />
-                <button className="btn-search" type="submit" >Search</button>
+                {/* <button className="btn-search" type="submit" >Search</button> */}
             </form>
             <div className="container">
                 <div className="left-content">
