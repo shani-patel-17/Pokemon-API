@@ -46,6 +46,9 @@ body{
     grid-template-rows: repeat(auto-fit,minmax(100px,0.5fr));
     grid-gap: 5rem;
 }
+.container{
+    display: flex;
+}
 .card{
     width: 300px;
     background-color: #61aada;
