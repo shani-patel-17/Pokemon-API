@@ -6,7 +6,7 @@ export default function Home({pokemon, loading,}) {
         <> 
             <div className="container">
                 <div className="Random-poke">
-                    <Card pokemonDetails={pokemon} isLoading={loading} />
+                    <Card />
                 </div>
             </div>
         </>

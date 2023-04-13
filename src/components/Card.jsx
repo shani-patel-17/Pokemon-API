@@ -1,6 +1,6 @@
-import React from 'react'
-
-export default function Card({ pokemon, loading,infoPokemon}) {
+import React from "react";
+const Card = ({ pokemon, loading,infoPokemon}) => {
+   // console.log(pokemon);
     return (
         <>
         {
@@ -11,7 +11,7 @@ export default function Card({ pokemon, loading,infoPokemon}) {
                             <div className="card" key={item.id} onClick={()=>infoPokemon(item)}>
                                 <h2>{item.name}</h2>
                                 <img src={item.sprites.front_default} alt="" />
-                                <h2>{item.types.map(i=>{return i.type.name + " "})}</h2>
+                                <h2>{item.id}</h2>
                             </div>
                         </>
                     )
@@ -21,3 +21,4 @@ export default function Card({ pokemon, loading,infoPokemon}) {
         </>
     )
 }
+export default Card;

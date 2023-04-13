@@ -4,8 +4,7 @@ import Pokemoninfo from "./Pokemoninfo";
 import axios from "axios";
 import { useState } from "react";
 import { useEffect } from "react";
-
-export default function Main() {
+const Main=()=>{
     const [pokeData,setPokeData]=useState([]);
     const [loading,setLoading]=useState(true);
     const [url,setUrl]=useState("https://pokeapi.co/api/v2/pokemon/")
@@ -60,3 +59,4 @@ export default function Main() {
         </>
     )
 }
+export default Main;
