@@ -5,7 +5,7 @@ export default function Navbar(){
     return(
         <nav className="navbar">
             <Link to="/"><img src="./images/pokemonLogo.png" alt="logo" /></Link>
-            <Link className="menu-item" to="/pokemonlist">Pokemon List</Link>
+            <Link className="menu-item" to="/pokemon">Pokemon</Link>
         </nav >
     )
 }
