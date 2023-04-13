@@ -13,6 +13,7 @@ const Main = () => {
     const [pokeDex, setPokeDex] = useState();
     const [query, setQuery] = useState("");
 
+
     const search =(data) =>{
         return data.filter((item)=>item.name.toLowerCase().includes(query) )
     }
