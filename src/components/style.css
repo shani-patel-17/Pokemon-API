@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Ubuntu', sans-serif;;
+}
+body{
+    background-color: white;
+}
+.navbar{
+    width: 100%;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    background-color: #61aada;
+    opacity: 0.9;
+    position: fixed;
+    top: 0;
+}
+.navbar img{
+    width: 140px;
+    height: 60px;
+    margin-left: 32px;
+}
+.menu-item{
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 600;
+    color: black;
+    padding: 4px 10px;
+    margin-left: 16px;
+}
+.container{   
+    width: 90%;
+    margin: auto;
+    padding-top: 100px;
+    display: flex;
+    justify-content: center;
+}
+.left-comp,.right-comp{
+    flex-basis: 50%;
+}
+.Random-poke{
+    display: grid;
+    grid-template-columns: repeat(3,minmax(200px,5fr));
+    grid-template-rows: repeat(auto-fit,minmax(100px,0.5fr));
+    grid-gap: 5rem;
+}
+.card{
+    width: 300px;
+    background-color: #61aada;
+    border-radius: 1rem;
+    box-sizing: border-box;
+    box-shadow: 0 5px 5px rgba(0,0,0,0.5);
+    padding: 0 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.right-comp{
+    width: 50%;
+    text-align: center;
+    color: black;
+    position: fixed;
+    top:100px;
+    right: 10px;
+}
+.right-comp img{
+    margin: 1.5rem;
+    height: 160px;
+}
+.right-comp h1{
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+.abilities{
+    width: 70%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+
+}
+.abilities .group{
+    background-color: brown;
+    color: white;
+    padding: 0.5rem;
+    font-size:12px;
+    border-radius: 8px;
+}
+.base-stat{
+    margin-top: 2rem;
+}
+.btn-group{
+    display: flex;
+}
+.btn-group button{
+    outline: none;
+    border: none;
+    width: 150px;
+    padding: 0.3rem 0;
+    margin: 1rem;
+    font-size: 17px;
+    font-weight: bold;
+    color: white;
+    background-color: brown;
+    border-radius: 8px;
+}
