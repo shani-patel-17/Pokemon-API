@@ -29,6 +29,24 @@ body{
     color: black;
     padding: 4px 10px;
     margin-left: 16px;
+    position: relative;
+    top: 4.5vw;
+    left: 39vw;
+}
+.form-input{
+    width: 200px;
+    height: 30px;
+    border-radius: 10px;
+    padding: 0 15px;
+
+}
+.btn-search{
+    width: 70px;
+    height: 30px;
+    border-radius: 10px;
+    background-color: #61aada;
+    padding: 0 15px;
+    color: white;
 }
 .container{
     width: 90%;
@@ -42,14 +60,16 @@ body{
 .left-content{
     display: grid;
     grid-template-columns: repeat(auto-fit,minmax(200px,5fr));
-    grid-gap:7rem;
+
+    grid-row-gap: 2rem;
+    grid-column-gap: 7rem;
 }
 .card{
     width: 300px;
     background-color:#9EDEF9;
     border-radius: 1rem;
     box-shadow: 0 5px 5px rgba(0,0,0,0.5);
-    padding: 0 1.5rem;
+    padding: 0 0.9rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -95,6 +115,7 @@ body{
 }
 .btn-group{
     display: flex;
+    width: 300px;
 }
 .btn-group button{
     outline: none;

@@ -4,48 +4,58 @@ import Pokemoninfo from "./Pokemoninfo";
 import axios from "axios";
 import { useState } from "react";
 import { useEffect } from "react";
-const Main=()=>{
-    const [pokeData,setPokeData]=useState([]);
-    const [loading,setLoading]=useState(true);
-    const [url,setUrl]=useState("https://pokeapi.co/api/v2/pokemon/")
-    const [nextUrl,setNextUrl]=useState();
-    const [prevUrl,setPrevUrl]=useState();
-    const [pokeDex,setPokeDex]=useState();
+const Main = () => {
+    const [pokeData, setPokeData] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [url, setUrl] = useState("https://pokeapi.co/api/v2/pokemon/")
+    const [nextUrl, setNextUrl] = useState();
+    const [prevUrl, setPrevUrl] = useState();
+    const [pokeDex, setPokeDex] = useState();
+    const [query, setQuery] = useState("");
 
-    const pokeFun=async()=>{
+    const search =(data) =>{
+        return data.filter((item)=>item.name.toLowerCase().includes(query))
+    }
+ 
+
+    const pokeFun = async () => {
         setLoading(true)
-        const res=await axios.get(url);
+        const res = await axios.get(url);
         setNextUrl(res.data.next);
         setPrevUrl(res.data.previous);
         getPokemon(res.data.results)
         setLoading(false)
     }
-    const getPokemon=async(res)=>{
-       res.map(async(item)=>{
-          const result=await axios.get(item.url)
-          setPokeData(state=>{
-              state=[...state,result.data]
-              state.sort((a,b)=>a.id>b.id?1:-1)
-              return state;
-          })
-       })   
+    const getPokemon = async (res) => {
+        res.map(async (item) => {
+            const result = await axios.get(item.url)
+            setPokeData(state => {
+                state = [...state, result.data]
+                state.sort((a, b) => a.id > b.id ? 1 : -1)
+                return state;
+            })
+        })
     }
-    useEffect(()=>{
+    useEffect(() => {
         pokeFun();
-    },[url])
-    return(
+    }, [url])
+    return (
         <>
+            <form className="form menu-item" role="search">
+                <input className="form-input" type="search" placeholder="Search..." aria-label="Search" onChange={(e) => setQuery(e.target.value)} />
+                <button className="btn-search" type="submit" >Search</button>
+            </form>
             <div className="container">
                 <div className="left-content">
-                    <Card pokemon={pokeData} loading={loading} infoPokemon={poke=>setPokeDex(poke)}/>
-                    
+                    <Card pokemon={search(pokeData)} loading={loading} infoPokemon={poke => setPokeDex(poke)} />
+
                     <div className="btn-group">
-                        {  prevUrl && <button onClick={()=>{
+                        {prevUrl && <button onClick={() => {
                             setPokeData([])
-                           setUrl(prevUrl) 
+                            setUrl(prevUrl)
                         }}>Previous</button>}
 
-                        { nextUrl && <button onClick={()=>{
+                        {nextUrl && <button onClick={() => {
                             setPokeData([])
                             setUrl(nextUrl)
                         }}>Next</button>}
@@ -53,7 +63,7 @@ const Main=()=>{
                     </div>
                 </div>
                 <div className="right-content">
-                   <Pokemoninfo data={pokeDex}/>
+                    <Pokemoninfo data={pokeDex} />
                 </div>
             </div>
         </>
